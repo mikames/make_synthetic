@@ -1,0 +1,42 @@
+[{  
+    "n_samples"         : 110000,
+    "n_categories"      : 20000,
+    "n_classes"         : 2,
+    "flip_y"            : 0.001,
+    "class_sep"         : 2,
+    "weights"           : [0.95, 0.05], 
+    "pct_missing"       : 0.0,
+    "input_path"        : "./", 
+    "output_path"       : "./data/",
+    "s3_upload"         : "False" ,
+    "s3_bucket"         : "afd-sample-bucket",
+    "s3_path"           : "detector_1",
+    "output_file"       : "cnp_100k",
+    "target_feature"    : "is_fraud",
+    "predict_baseline"  : "True",
+    "identity_features" : {
+        "EVENT_TIMESTAMP"   : "str(fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None))",
+        "cardholder_name"    : "fake.name()",
+        "billing_address"   : "fake.street_address()"
+
+    },
+    "categorical_features"  : {
+        "ip_address"        : "fake.ipv4_public()",
+        "email_address"     : "fake.email()",
+        "phone_number"      : "fake.phone_number()",
+        "merchant_id"       : "fake.ssn()",
+        "billing_city"      : "fake.city()",
+        "billing_postal"    : "fake.postcode()",
+        "billing_state"     : "fake.state()",
+        "transaction_currency" : "fake.random_element(elements=('usd', 'cad', 'eur'))",
+        "transaction_avs" : "fake.random_uppercase_letter()",
+        "signature_image" : "fake.random_uppercase_letter()",
+        "transaction_type" : "fake.random_uppercase_letter()",
+        "transaction_env" : "fake.random_uppercase_letter()"
+    },
+    "numeric_features" : {
+        "transaction_amt" : [5, 5000],
+        "transaction_adj_amt"   : [1, 100]
+    }
+}]
+
